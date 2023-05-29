@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+
+import "./css/App.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import UpdateCard from "./components/UpdateCard";
+import Createcard from "./components/CreateCard";
+import CardDisplay from "./components/CardDisplay";
+import Register from "./components/Regiter";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Register />} />
+          <Route path="/createcard" element={<Createcard />} />
+          <Route path="/updatecard" element={<UpdateCard />} />
+          <Route path="/card-display/:name" element={<CardDisplay />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 
